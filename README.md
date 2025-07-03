@@ -1,4 +1,5 @@
 📡 Apache Kafka com Spring Boot
+
 Este projeto demonstra como configurar e utilizar o Apache Kafka com Spring Boot, incluindo uso do modo KRaft e comparação com RabbitMQ.
 
 📘 Conceitos Fundamentais
