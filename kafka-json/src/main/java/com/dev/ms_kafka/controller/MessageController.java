@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dev.ms_kafka.kafka.KafkaProducer;
 
-
 @RestController
 @RequestMapping("/kafka")
 public class MessageController {
