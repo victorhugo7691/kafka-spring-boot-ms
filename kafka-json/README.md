@@ -27,28 +27,45 @@ controller.quorum.voters=1@localhost:9093
 Ou use esse comando alternativo:
 .\bin\windows\kafka-storage.bat format --config .\config\server.properties --cluster-id SEU_CLUSTER_ID --initial-controllers 1@localhost:9093
 
-
+
 ▶️ 3. Iniciar o Kafka
 .\bin\windows\kafka-server-start.bat .\config\server.properties
 
+ 🧱 Arquitetura:
 
++-------------------+        +-------------------+        +-------------------+
+|   Spring Boot     |        |     Apache Kafka  |        |   Spring Boot     |
+|   Producer App    | -----> |     (Broker)      | -----> |   Consumer App    |
++-------------------+        +-------------------+        +-------------------+
+        |                            |                            |
+        |                            |                            |
+        |                            v                            |
+        |                    [Tópico: javaguides]              |
+        |                            |                            |
+        |                            v                            |
+        |                    Armazena e distribui                 |
+        +--------------------------------------------------------+
 
 🧪 Comandos úteis no Kafka
 📌 Criar um tópico
 .\bin\windows\kafka-topics.bat --create --topic topic-example --bootstrap-server localhost:9092
 
-
 ✉️ Produzir mensagens
 .\bin\windows\kafka-console-producer.bat --topic topic-example --bootstrap-server localhost:9092
 
-
 Para encerrar: pressione CTRL + C e confirme.
 📥 Consumir mensagens
 .\bin\windows\kafka-console-consumer.bat --topic topic-example --from-beginning --bootstrap-server localhost:9092
 
-Endpoint da aplicação Spring Boot para gravar uma nova mensagem : http://localhost:8080/kafka/publish?message=
+Endpoint da aplicação Spring Boot para gravar um novo JSON : http://localhost:8080/kafka/json/publish
 
-
+Exemplo de JSON: 
+
+{
+    "id": 2,
+    "firstName": "Primeiro",
+    "lastName": "Segundo"
+}
 
 🎯 Kafka vs RabbitMQ: Quando usar cada um?
 | Característica | RabbitMQ | Apache Kafka | 
@@ -67,5 +84,3 @@ Endpoint da aplicação Spring Boot para gravar uma nova mensagem : http://local
 
 📚 Material de apoio
 - Curso: springboot-kafka-course
-
-Se quiser, posso adicionar uma seção sobre integração com Spring Boot ou um diagrama de arquitetura simplificado também. Quer incluir isso no seu README? 💡📄
