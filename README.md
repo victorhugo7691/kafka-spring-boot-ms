@@ -76,3 +76,5 @@ Endpoint da aplicação Spring Boot para gravar uma nova mensagem : http://local
 
 📚 Material de apoio
 - Curso: springboot-kafka-course
+- Link projeto real: https://github.com/RameshMF/springboot-kafka-course
+
