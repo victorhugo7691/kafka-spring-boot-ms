@@ -77,6 +77,18 @@ Exemplo de JSON:
 | 🚀 Performance | Boa para workloads moderados | Excelente para grandes volumes e escala horizontal | 
 
 
+IBM MQ:
+
+Para provisionar uma fila do IBM MQ, pode-se utilizar um container:
+
+podman run \
+  --env LICENSE=accept \
+  --env MQ_QMGR_NAME=QM1 \
+  --publish 1414:1414 \
+  --publish 9443:9443 \
+  --detach \
+  icr.io/ibm-messaging/mq:latest
+
 ✨ Resumo:
 - Use RabbitMQ se sua aplicação demanda simplicidade, alta confiabilidade e enfileiramento clássico.
 - Prefira Kafka se você precisa de escalabilidade, event streaming e análise em tempo real.
